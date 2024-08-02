@@ -1,0 +1,129 @@
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2024-05-18 17:18:07.2
+
+
+DROP TABLE Inwentarz_Przedmiot;
+DROP TABLE Przedmiot;
+Drop TABLE Rarity;
+DROP TABLE Postac;
+DROP TABLE Inventory;
+DROP TABLE Ranking;
+DROP TABLE Serwer;
+DROP TABLE Typ_postaci;
+DROP TABLE Gracz;
+
+-- tables
+-- Table: Gracz
+CREATE TABLE Gracz (
+    Email varchar2(50)  NOT NULL,
+    Data_rejestracji date  NOT NULL,
+    Ostatnie_logowanie date  NOT NULL,
+    CONSTRAINT Gracz_pk PRIMARY KEY (Email)
+) ;
+
+-- Table: Inventory
+CREATE TABLE Inventory (
+    Id integer  NOT NULL,
+    Ilosc_miejsca integer  NOT NULL,
+    CONSTRAINT Inventory_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Inwentarz_Przedmiot
+CREATE TABLE Inwentarz_Przedmiot (
+    Id integer  NOT NULL,
+    Inventory_Id integer  NOT NULL,
+    Przedmiot_Id integer  NOT NULL,
+    CONSTRAINT Inwentarz_Przedmiot_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Postac
+CREATE TABLE Postac (
+    Nickname varchar2(20)  NOT NULL,
+    Typ_postaci_Id integer  NOT NULL,
+    Ranking_Id integer  NOT NULL,
+    Serwer_Id integer  NOT NULL,
+    Inventory_Id integer  NOT NULL,
+    Gracz_Email varchar2(50)  NOT NULL,
+    CONSTRAINT Postac_pk PRIMARY KEY (Nickname,Serwer_Id,Gracz_Email)
+) ;
+
+-- Table: Przedmiot
+CREATE TABLE Przedmiot (
+    Id integer  NOT NULL,
+    Nazwa varchar2(20)  NOT NULL,
+    Opis varchar2(100)  NOT NULL,
+    Rarity_Id integer  NOT NULL,
+    CONSTRAINT Przedmiot_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Ranking
+CREATE TABLE Ranking (
+    Id integer  NOT NULL,
+    Nazwa varchar2(20)  NOT NULL,
+    CONSTRAINT Ranking_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Rarity
+CREATE TABLE Rarity (
+    Id integer  NOT NULL,
+    Nazwa varchar2(20)  NOT NULL,
+    CONSTRAINT Rarity_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Serwer
+CREATE TABLE Serwer (
+    Id integer  NOT NULL,
+    Nazwa varchar2(20)  NOT NULL,
+    CONSTRAINT Serwer_pk PRIMARY KEY (Id)
+) ;
+
+-- Table: Typ_postaci
+CREATE TABLE Typ_postaci (
+    Id integer  NOT NULL,
+    Nazwa varchar2(20)  NOT NULL,
+    CONSTRAINT Typ_postaci_pk PRIMARY KEY (Id)
+) ;
+
+-- foreign keys
+-- Reference: Inwentarz_Przedmiot_Inventory (table: Inwentarz_Przedmiot)
+ALTER TABLE Inwentarz_Przedmiot ADD CONSTRAINT Inwentarz_Przedmiot_Inventory
+    FOREIGN KEY (Inventory_Id)
+    REFERENCES Inventory (Id);
+
+-- Reference: Inwentarz_Przedmiot_Przedmiot (table: Inwentarz_Przedmiot)
+ALTER TABLE Inwentarz_Przedmiot ADD CONSTRAINT Inwentarz_Przedmiot_Przedmiot
+    FOREIGN KEY (Przedmiot_Id)
+    REFERENCES Przedmiot (Id);
+
+-- Reference: Postac_Gracz (table: Postac)
+ALTER TABLE Postac ADD CONSTRAINT Postac_Gracz
+    FOREIGN KEY (Gracz_Email)
+    REFERENCES Gracz (Email);
+
+-- Reference: Postac_Inventory (table: Postac)
+ALTER TABLE Postac ADD CONSTRAINT Postac_Inventory
+    FOREIGN KEY (Inventory_Id)
+    REFERENCES Inventory (Id);
+
+-- Reference: Postac_Ranking (table: Postac)
+ALTER TABLE Postac ADD CONSTRAINT Postac_Ranking
+    FOREIGN KEY (Ranking_Id)
+    REFERENCES Ranking (Id);
+
+-- Reference: Postac_Serwer (table: Postac)
+ALTER TABLE Postac ADD CONSTRAINT Postac_Serwer
+    FOREIGN KEY (Serwer_Id)
+    REFERENCES Serwer (Id);
+
+-- Reference: Postac_Typ_postaci (table: Postac)
+ALTER TABLE Postac ADD CONSTRAINT Postac_Typ_postaci
+    FOREIGN KEY (Typ_postaci_Id)
+    REFERENCES Typ_postaci (Id);
+
+-- Reference: Przedmiot_Rarity (table: Przedmiot)
+ALTER TABLE Przedmiot ADD CONSTRAINT Przedmiot_Rarity
+    FOREIGN KEY (Rarity_Id)
+    REFERENCES Rarity (Id);
+
+-- End of file.
+

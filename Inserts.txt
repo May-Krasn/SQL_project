@@ -1,0 +1,71 @@
+INSERT INTO Gracz VALUES ('maks@wp.pl', TO_DATE('22.12.2002', 'DD.MM.YYYY'), TO_DATE('18.05.2024', 'DD.MM.YYYY'));
+INSERT INTO Gracz VALUES ('Aleks@gmail.com', TO_DATE('10.05.2000', 'DD.MM.YYYY'), TO_DATE('10.05.2024', 'DD.MM.YYYY'));
+INSERT INTO Gracz VALUES ('Feyre@gmail.com', TO_DATE('13.11.2000', 'DD.MM.YYYY'), TO_DATE('18.12.2022', 'DD.MM.YYYY'));
+INSERT INTO Gracz VALUES ('Rhysand@mail.ru', TO_DATE('08.11.2001', 'DD.MM.YYYY'), TO_DATE('22.01.2024', 'DD.MM.YYYY')); 
+INSERT INTO Gracz VALUES ('Archeron@gmail.com', TO_DATE('05.10.2003', 'DD.MM.YYYY'), TO_DATE('31.12.2023', 'DD.MM.YYYY'));
+
+INSERT INTO Ranking VALUES ('1', 'Iron');
+INSERT INTO Ranking VALUES ('2', 'Bronze');
+INSERT INTO Ranking VALUES ('3', 'Silver');
+INSERT INTO Ranking VALUES ('4', 'Gold'); 
+INSERT INTO Ranking VALUES ('5', 'Platinum'); 
+INSERT INTO Ranking VALUES ('6', 'Diamond'); 
+INSERT INTO Ranking VALUES ('7', 'Immortal'); 
+
+INSERT INTO Typ_postaci VALUES ('1', 'Warrior');
+INSERT INTO Typ_postaci VALUES ('2', 'Archer');
+INSERT INTO Typ_postaci VALUES ('3', 'Healer');
+INSERT INTO Typ_postaci VALUES ('4', 'Thief'); 
+INSERT INTO Typ_postaci VALUES ('5', 'Necromancer'); 
+INSERT INTO Typ_postaci VALUES ('6', 'Ranger'); 
+
+INSERT INTO Serwer VALUES ('1', 'Prythian');
+INSERT INTO Serwer VALUES ('2', 'Kingdom of Wicked');
+INSERT INTO Serwer VALUES ('3', 'Cesarine');
+INSERT INTO Serwer VALUES ('4', 'Crescent City'); 
+INSERT INTO Serwer VALUES ('5', 'Hazbin Hotel'); 
+INSERT INTO Serwer VALUES ('6', 'Post Mortem'); 
+INSERT INTO Serwer VALUES ('7', 'Thunderhead'); 
+
+INSERT INTO Rarity VALUES ('1', 'Common');
+INSERT INTO Rarity VALUES ('2', 'Magical');
+INSERT INTO Rarity VALUES ('3', 'Uncommon');
+INSERT INTO Rarity VALUES ('4', 'Rare'); 
+INSERT INTO Rarity VALUES ('5', 'Unique');
+
+INSERT INTO Przedmiot VALUES ('1', 'Miecz', '10 damage points', '1');
+INSERT INTO Przedmiot VALUES ('2', 'Zloty Naszyjnik', 'Magiczny naszyjnik nadajacy postaci +10 pkt sily', '4'); 
+INSERT INTO Przedmiot VALUES ('515', 'Rubin', '500 zlotych monet', '2'); 
+INSERT INTO Przedmiot VALUES ('23', 'Pierscien Dziadka', 'Nieoczekiwanie duzo pkt do wszystkich charakterystyk postaci', '5'); 
+INSERT INTO Przedmiot VALUES ('656', 'Ksiazka', '3 damage points, 10 EmOtIoNaL dAmAgE', '1'); 
+INSERT INTO Przedmiot VALUES ('2145', 'Kaktus Fiodor', 'Twoj jedyny przyjaciel', '3'); 
+INSERT INTO Przedmiot VALUES ('315', 'Lego', '+15 do humoru NPC', '2'); 
+INSERT INTO Przedmiot VALUES ('10', 'Strzały', '3 damage points', '1');  
+INSERT INTO Przedmiot VALUES ('531', 'Pamiatka od Matki', 'Nostalgia, ale bezuzyteczne', '1');  
+INSERT INTO Przedmiot VALUES ('214', 'Nwm co tu jest', 'Tu powinien byc jakis opis', '5'); 
+
+INSERT INTO Inventory VALUES ('121', '25');
+INSERT INTO Inventory VALUES ('2', '15'); 
+INSERT INTO Inventory VALUES ('419', '24'); 
+INSERT INTO Inventory VALUES ('5315', '25'); 
+INSERT INTO Inventory VALUES ('421', '30'); 
+INSERT INTO Inventory VALUES ('53', '16'); 
+INSERT INTO Inventory VALUES ('69', '14'); 
+INSERT INTO Inventory VALUES ('420', '22'); 
+
+INSERT INTO Inwentarz_Przedmiot VALUES ('1', '121', '656');
+INSERT INTO Inwentarz_Przedmiot VALUES ('2', '121', '23'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('3', '419', '2145'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('4', '5315', '531'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('5', '421', '214'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('6', '53', '214'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('7', '420', '1'); 
+INSERT INTO Inwentarz_Przedmiot VALUES ('8', '420', '656'); 
+
+INSERT INTO Postac VALUES ('rozmarts', '5', '7', '2', '420', 'Feyre@gmail.com');
+INSERT INTO Postac VALUES ('Szaszlyk', '4', '2', '1', '69', 'Archeron@gmail.com'); 
+INSERT INTO Postac VALUES ('cukierkilukrecji', '3', '3', '1', '5315', 'Aleks@gmail.com'); 
+INSERT INTO Postac VALUES ('tostyikawa', '2', '6', '7', '53', 'Archeron@gmail.com'); 
+INSERT INTO Postac VALUES ('plutoxane', '6', '1', '6', '121', 'Rhysand@mail.ru'); 
+INSERT INTO Postac VALUES ('mags_green', '5', '7', '6', '419', 'Feyre@gmail.com'); 
+INSERT INTO Postac VALUES ('alegzandra_', '4', '3', '3', '2', 'maks@wp.pl'); 
